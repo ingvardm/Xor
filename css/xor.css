@@ -1,0 +1,21 @@
+#blocks {
+    width:600px;
+    height:500px;
+    //border: solid black 1px;
+}
+
+#blocks .ui-selecting { background: #FECA40; }
+//#blocks .ui-selected { background: #F39814; color: white; }
+
+.block {
+    width: 50px;
+    height: 48px;
+    background-color: red;
+    list-style-type: none;
+    float: left;
+    margin: 1px;
+}
+
+.on {
+    background-color: green;
+}

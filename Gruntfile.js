@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 module.exports = function(grunt) {
 
-    require('matchdep').filterDev('grunt-*')
+    require("matchdep").filterDev("grunt-*")
         .forEach(grunt.loadNpmTasks);  
 
     // Project configuration.
@@ -11,17 +11,24 @@ module.exports = function(grunt) {
             server: {
                 options: {
                     port: 8080,
-                    base: '.',
+                    base: ".",
                     middleware: function(connect, options) {
                         return [
-                            require('grunt-contrib-livereload/lib/utils').livereloadSnippet,
+                            require("grunt-contrib-livereload/lib/utils").livereloadSnippet,
                             connect.static(options.base)
                         ];
                     }
                 }
             }
         },
-        // Task configuration.
+        
+        less:{
+            development:{
+                options: {},
+                files: { "css/main.css": "css/main.less"}
+            }
+        },
+
         jshint: {
             options: {
                 curly: true,
@@ -37,27 +44,40 @@ module.exports = function(grunt) {
                 eqnull: true,
                 node: true,
                 globals: {
-                    '$': false
+                    "require": false,
+                    "define": false
                 }
             },
+
             gruntfile: {
-                src: 'Gruntfile.js'
+                src: "Gruntfile.js"
             },
+
             app_files: {
-                src: ['js/*.js']
+                src: ["scripts/*.js"]
             }
         },
         watch: {
             gruntfile: {
-                files: '<%= jshint.gruntfile.src %>',
-                tasks: ['jshint:gruntfile']
+                files: "<%= jshint.gruntfile.src %>",
+                tasks: ["jshint:gruntfile"]
             },
+
             app_files: {
-                files: '<%= jshint.app_files.src %>',
-                tasks: ['jshint:app_files']
+                files: "<%= jshint.app_files.src %>",
+                tasks: ["jshint:app_files"],
+                options:{
+                    livereload: true
+                }
             },
+            
+            less: {
+                files: "css/main.less",
+                tasks: ["less:development"]
+            },
+
             index: {
-                files: ['index.html'],
+                files: ["index.html","css/xor.css"],
                 options:{
                     livereload: true
                 }
@@ -66,9 +86,9 @@ module.exports = function(grunt) {
     });
 
     // Default task.
-    grunt.registerTask('default', [
-        'connect',
-        'watch'
+    grunt.registerTask("default", [
+        "connect",
+        "watch"
     ]);
 
 };

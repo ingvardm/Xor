@@ -1,5 +1,5 @@
-
-    var clicks = 0;
+define(["jquery","jquery-ui"],function($){
+   var clicks = 0;
     function Xor(){
         this.board = [
             [0,0,0,0,0,0,0,0,0,0,0,0],
@@ -89,3 +89,7 @@
         console.log("clicks: " + clicks);
     }
 
+    pb = printBoard;
+    g = game;
+
+});

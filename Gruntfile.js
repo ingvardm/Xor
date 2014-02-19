@@ -73,7 +73,10 @@ module.exports = function(grunt) {
             
             less: {
                 files: "css/main.less",
-                tasks: ["less:development"]
+                tasks: ["less:development"],
+                options:{
+                    livereload: true
+                }
             },
 
             index: {

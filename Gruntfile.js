@@ -44,6 +44,9 @@ module.exports = function(grunt) {
                 eqnull: true,
                 node: true,
                 globals: {
+                    "$": false,
+                    "window": false,
+                    "requirejs": false,
                     "require": false,
                     "define": false
                 }

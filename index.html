@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
         <title>Xor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"> 
         <link rel="stylesheet" href="css/main.css" type="text/css">
     </head>
     <body>
         <div id="screen">
-            <ol id="blocks" style="display:none"></ol>
-            <div id="main-menu">
-                <div id="start-screen">
-                    <div id="start-screen-logo"></div>
-                    <div id="start-button">Start</div>
-                </div>
-                <div id="level-select-screen">
-                    
-                </div>
+           <div id="start-screen">
+                <div id="start-screen-logo"></div>
+                <div id="start-button"><a href="#level-select-screen">Start</a></div>
+            </div>
+            <div id="level-select-screen">
+                <div id="levels"></div> 
+            </div>
+            <div id="game-screen">
+                <div id="game-header"></div>
+                <div id="blocks"></div>
+                <div id="game-footer"></div>
             </div>
         </div>
         
